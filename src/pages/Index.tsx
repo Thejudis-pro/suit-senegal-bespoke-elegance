@@ -14,6 +14,7 @@ const Index = () => {
             <nav className="hidden md:flex space-x-8">
               <a href="#home" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Accueil</a>
               <a href="#collection" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Collection</a>
+              <a href="#galerie" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Galerie</a>
               <a href="#about" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">À Propos</a>
               <a href="#contact" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Contact</a>
             </nav>
@@ -48,14 +49,14 @@ const Index = () => {
             <div className="relative">
               <div className="aspect-[4/5] rounded-lg shadow-2xl relative overflow-hidden">
                 <img 
-                  src="/lovable-uploads/938ed564-8209-491f-8d5a-62e6cc0c61ea.png" 
-                  alt="Costume beige élégant SUIT SENEGAL"
+                  src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" 
+                  alt="Costume gris élégant double boutonnage SUIT SENEGAL"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 text-white">
-                  <p className="text-sm font-medium">Collection Automne</p>
-                  <p className="text-lg font-serif">Costume Deux Pièces</p>
+                  <p className="text-sm font-medium">Collection Prestige</p>
+                  <p className="text-lg font-serif">Costume Double Boutonnage</p>
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-400/20 rounded-full blur-xl"></div>
@@ -77,28 +78,28 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Men's Collection */}
+            {/* Men's Collection - Gray Suit */}
             <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="aspect-[3/4] relative overflow-hidden">
                 <img 
-                  src="/lovable-uploads/d03eb783-6e6f-44cc-a3e2-0f8c873546f5.png" 
-                  alt="Costume trois pièces bleu homme"
+                  src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" 
+                  alt="Costume double boutonnage gris homme"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-serif font-semibold">Collection Homme</h4>
-                  <p className="text-sm opacity-90">Costumes sur mesure</p>
+                  <p className="text-sm opacity-90">Double Boutonnage</p>
                 </div>
               </div>
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div>
-                    <h5 className="font-semibold text-slate-800">Costume Trois Pièces</h5>
-                    <p className="text-slate-600 text-sm">Élégance classique et moderne</p>
+                    <h5 className="font-semibold text-slate-800">Costume Prestige Gris</h5>
+                    <p className="text-slate-600 text-sm">Élégance intemporelle</p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-amber-600">70.000 - 80.000 CFA</span>
+                    <span className="text-2xl font-bold text-amber-600">75.000 CFA</span>
                     <Button size="sm" variant="outline" className="hover:bg-slate-50">
                       Voir plus
                     </Button>
@@ -107,60 +108,60 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Women's Collection - Orange Suit */}
+            {/* Men's Collection - Beige Suit */}
             <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="aspect-[3/4] relative overflow-hidden">
                 <img 
-                  src="/lovable-uploads/13a9101e-31b9-49ee-8cae-4868b4861da0.png" 
-                  alt="Tailleur orange femme"
+                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" 
+                  alt="Costume trois pièces beige homme"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h4 className="text-lg font-serif font-semibold">Collection Été</h4>
+                  <p className="text-sm opacity-90">Trois pièces</p>
+                </div>
+              </div>
+              <CardContent className="p-6">
+                <div className="space-y-4">
+                  <div>
+                    <h5 className="font-semibold text-slate-800">Costume Trois Pièces Beige</h5>
+                    <p className="text-slate-600 text-sm">Sophistication moderne</p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-amber-600">80.000 CFA</span>
+                    <Button size="sm" variant="outline" className="hover:bg-slate-50">
+                      Voir plus
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Women's Collection - Blue Suit */}
+            <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="aspect-[3/4] relative overflow-hidden">
+                <img 
+                  src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" 
+                  alt="Tailleur bleu femme double boutonnage"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-serif font-semibold">Collection Femme</h4>
-                  <p className="text-sm opacity-90">Élégance féminine</p>
+                  <p className="text-sm opacity-90">Puissance & Élégance</p>
                 </div>
               </div>
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div>
-                    <h5 className="font-semibold text-slate-800">Tailleur Double Boutonnage</h5>
-                    <p className="text-slate-600 text-sm">Style audacieux et sophistiqué</p>
+                    <h5 className="font-semibold text-slate-800">Tailleur Bleu Royal</h5>
+                    <p className="text-slate-600 text-sm">Confiance et charisme</p>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-amber-600">Sur devis</span>
                     <Button size="sm" variant="outline" className="hover:bg-slate-50">
-                      Voir plus
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Women's Collection - Purple Suit */}
-            <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden md:col-span-2 lg:col-span-1">
-              <div className="aspect-[3/4] relative overflow-hidden">
-                <img 
-                  src="/lovable-uploads/86209660-17e5-4572-91af-5523dd7b03f7.png" 
-                  alt="Tailleur violet femme"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h4 className="text-lg font-serif font-semibold">Collection Prestige</h4>
-                  <p className="text-sm opacity-90">Confection sur mesure</p>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <div>
-                    <h5 className="font-semibold text-slate-800">Tailleur Classique</h5>
-                    <p className="text-slate-600 text-sm">Raffinement et distinction</p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-amber-600">Réservation</span>
-                    <Button size="sm" variant="outline" className="hover:bg-slate-50">
-                      Réserver
+                      Commander
                     </Button>
                   </div>
                 </div>
@@ -170,8 +171,98 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Galerie Section */}
+      <section id="galerie" className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl lg:text-4xl font-serif font-bold text-slate-800 mb-4">
+              Galerie de nos Créations
+            </h3>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Parcourez notre portfolio de créations sur mesure et laissez-vous inspirer par l'artisanat sénégalais.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="space-y-6">
+              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
+                <img 
+                  src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" 
+                  alt="Costume gris élégant"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
+                <img 
+                  src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" 
+                  alt="Tailleur bleu femme"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-6 lg:mt-8">
+              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
+                <img 
+                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" 
+                  alt="Costume beige trois pièces"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
+                <img 
+                  src="/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png" 
+                  alt="Manteau carreaux femme"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
+                <img 
+                  src="/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png" 
+                  alt="Style décontracté chic"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
+                <img 
+                  src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" 
+                  alt="Collection masculine"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-6 lg:mt-8">
+              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
+                <img 
+                  src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" 
+                  alt="Élégance professionnelle"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
+                <img 
+                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" 
+                  alt="Style tropical chic"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
+              Voir toute la Galerie
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
+      <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -205,7 +296,7 @@ const Index = () => {
             <div className="relative">
               <div className="aspect-square rounded-2xl shadow-xl overflow-hidden">
                 <img 
-                  src="/lovable-uploads/938ed564-8209-491f-8d5a-62e6cc0c61ea.png" 
+                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" 
                   alt="Artisanat SUIT SENEGAL"
                   className="w-full h-full object-cover"
                 />
