@@ -1,7 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Instagram, MapPin, Phone, Mail } from "lucide-react";
+
 const Index = () => {
   return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
       {/* Header */}
@@ -44,11 +46,16 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-[4/5] bg-gradient-to-br from-slate-800 to-slate-600 rounded-lg shadow-2xl relative overflow-hidden">
+              <div className="aspect-[4/5] rounded-lg shadow-2xl relative overflow-hidden">
+                <img 
+                  src="/lovable-uploads/938ed564-8209-491f-8d5a-62e6cc0c61ea.png" 
+                  alt="Costume beige élégant SUIT SENEGAL"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 text-white">
                   <p className="text-sm font-medium">Collection Automne</p>
-                  <p className="text-lg font-serif">Costume Trois Pièces</p>
+                  <p className="text-lg font-serif">Costume Deux Pièces</p>
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-400/20 rounded-full blur-xl"></div>
@@ -72,7 +79,12 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Men's Collection */}
             <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="aspect-[3/4] bg-gradient-to-br from-slate-700 to-slate-900 relative">
+              <div className="aspect-[3/4] relative overflow-hidden">
+                <img 
+                  src="/lovable-uploads/d03eb783-6e6f-44cc-a3e2-0f8c873546f5.png" 
+                  alt="Costume trois pièces bleu homme"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-serif font-semibold">Collection Homme</h4>
@@ -82,8 +94,8 @@ const Index = () => {
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div>
-                    <h5 className="font-semibold text-slate-800">Costume Deux Pièces</h5>
-                    <p className="text-slate-600 text-sm">Rayures tennis, carreaux, designs subtils</p>
+                    <h5 className="font-semibold text-slate-800">Costume Trois Pièces</h5>
+                    <p className="text-slate-600 text-sm">Élégance classique et moderne</p>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-amber-600">70.000 - 80.000 CFA</span>
@@ -95,9 +107,14 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Women's Collection */}
+            {/* Women's Collection - Orange Suit */}
             <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="aspect-[3/4] bg-gradient-to-br from-amber-600 to-amber-800 relative">
+              <div className="aspect-[3/4] relative overflow-hidden">
+                <img 
+                  src="/lovable-uploads/13a9101e-31b9-49ee-8cae-4868b4861da0.png" 
+                  alt="Tailleur orange femme"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-serif font-semibold">Collection Femme</h4>
@@ -107,8 +124,8 @@ const Index = () => {
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div>
-                    <h5 className="font-semibold text-slate-800">Tailleurs sur mesure</h5>
-                    <p className="text-slate-600 text-sm">Chemises et accessoires élégants</p>
+                    <h5 className="font-semibold text-slate-800">Tailleur Double Boutonnage</h5>
+                    <p className="text-slate-600 text-sm">Style audacieux et sophistiqué</p>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-amber-600">Sur devis</span>
@@ -120,20 +137,25 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Custom Services */}
+            {/* Women's Collection - Purple Suit */}
             <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden md:col-span-2 lg:col-span-1">
-              <div className="aspect-[3/4] bg-gradient-to-br from-slate-600 to-stone-700 relative">
+              <div className="aspect-[3/4] relative overflow-hidden">
+                <img 
+                  src="/lovable-uploads/86209660-17e5-4572-91af-5523dd7b03f7.png" 
+                  alt="Tailleur violet femme"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
-                  <h4 className="text-lg font-serif font-semibold">Service Personnalisé</h4>
+                  <h4 className="text-lg font-serif font-semibold">Collection Prestige</h4>
                   <p className="text-sm opacity-90">Confection sur mesure</p>
                 </div>
               </div>
               <CardContent className="p-6">
                 <div className="space-y-4">
                   <div>
-                    <h5 className="font-semibold text-slate-800">Création unique</h5>
-                    <p className="text-slate-600 text-sm">Consultation et prise de mesures</p>
+                    <h5 className="font-semibold text-slate-800">Tailleur Classique</h5>
+                    <p className="text-slate-600 text-sm">Raffinement et distinction</p>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-amber-600">Réservation</span>
@@ -181,7 +203,13 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl shadow-xl"></div>
+              <div className="aspect-square rounded-2xl shadow-xl overflow-hidden">
+                <img 
+                  src="/lovable-uploads/938ed564-8209-491f-8d5a-62e6cc0c61ea.png" 
+                  alt="Artisanat SUIT SENEGAL"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-slate-800 rounded-full opacity-20"></div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-amber-300/30 rounded-full blur-xl"></div>
             </div>
@@ -287,4 +315,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
