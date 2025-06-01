@@ -1,12 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Instagram, MapPin, Phone, Mail } from "lucide-react";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
+  return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
       {/* Header */}
       <header className="bg-white/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
@@ -221,7 +218,7 @@ const Index = () => {
               </div>
               <div>
                 <h4 className="text-xl font-semibold mb-2">Téléphone</h4>
-                <p className="text-slate-300">+221 XX XXX XX XX</p>
+                <p className="text-slate-300">+221 78 730 37 37</p>
               </div>
             </div>
 
@@ -231,9 +228,7 @@ const Index = () => {
               </div>
               <div>
                 <h4 className="text-xl font-semibold mb-2">Instagram</h4>
-                <a href="#" className="text-amber-400 hover:text-amber-300 transition-colors">
-                  @suitsenegal
-                </a>
+                <a href="#" className="text-amber-400 hover:text-amber-300 transition-colors">@suitsenegal</a>
               </div>
             </div>
           </div>
@@ -279,7 +274,7 @@ const Index = () => {
               <h5 className="text-lg font-semibold">Contact</h5>
               <div className="space-y-2 text-slate-400">
                 <p>Dakar, Sénégal</p>
-                <p>+221 XX XXX XX XX</p>
+                <p>+221 78 730 37 37</p>
                 <a href="#" className="hover:text-amber-400 transition-colors">contact@suitsenegal.com</a>
               </div>
             </div>
@@ -290,8 +285,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
