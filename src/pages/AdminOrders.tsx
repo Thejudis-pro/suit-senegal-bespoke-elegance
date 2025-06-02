@@ -1,12 +1,14 @@
+
 import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Mail, Calendar, User, ShoppingCart, Phone, MapPin, LogOut } from "lucide-react";
+import { Mail, Calendar, User, ShoppingCart, Phone, MapPin, LogOut, Check, Truck, Package, X } from "lucide-react";
 import AdminPasswordForm from "@/components/AdminPasswordForm";
+import { useToast } from "@/hooks/use-toast";
 
 interface Order {
   id: string;
@@ -26,6 +28,8 @@ interface Order {
 
 const AdminOrders = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     // Check if user is already authenticated
@@ -58,6 +62,32 @@ const AdminOrders = () => {
       return data as Order[];
     },
     enabled: isAuthenticated // Only fetch data when authenticated
+  });
+
+  const updateOrderStatus = useMutation({
+    mutationFn: async ({ orderId, status }: { orderId: string; status: string }) => {
+      const { error } = await supabase
+        .from('orders')
+        .update({ status, updated_at: new Date().toISOString() })
+        .eq('id', orderId);
+      
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-orders'] });
+      toast({
+        title: "Statut mis à jour",
+        description: "Le statut de la commande a été modifié avec succès.",
+      });
+    },
+    onError: (error) => {
+      toast({
+        title: "Erreur",
+        description: "Impossible de mettre à jour le statut de la commande.",
+        variant: "destructive",
+      });
+      console.error('Error updating order status:', error);
+    }
   });
 
   // Show password form if not authenticated
@@ -95,6 +125,73 @@ const AdminOrders = () => {
       case 'delivered': return 'Livrée';
       case 'cancelled': return 'Annulée';
       default: return status;
+    }
+  };
+
+  const getStatusActions = (orderId: string, currentStatus: string) => {
+    const isUpdating = updateOrderStatus.isPending;
+    
+    switch (currentStatus) {
+      case 'pending':
+        return (
+          <div className="flex gap-2">
+            <Button
+              size="sm"
+              onClick={() => updateOrderStatus.mutate({ orderId, status: 'confirmed' })}
+              disabled={isUpdating}
+              className="bg-blue-600 hover:bg-blue-700"
+            >
+              <Check className="w-4 h-4 mr-1" />
+              Confirmer
+            </Button>
+            <Button
+              size="sm"
+              variant="destructive"
+              onClick={() => updateOrderStatus.mutate({ orderId, status: 'cancelled' })}
+              disabled={isUpdating}
+            >
+              <X className="w-4 h-4 mr-1" />
+              Annuler
+            </Button>
+          </div>
+        );
+      case 'confirmed':
+        return (
+          <div className="flex gap-2">
+            <Button
+              size="sm"
+              onClick={() => updateOrderStatus.mutate({ orderId, status: 'shipped' })}
+              disabled={isUpdating}
+              className="bg-purple-600 hover:bg-purple-700"
+            >
+              <Truck className="w-4 h-4 mr-1" />
+              Expédier
+            </Button>
+            <Button
+              size="sm"
+              variant="destructive"
+              onClick={() => updateOrderStatus.mutate({ orderId, status: 'cancelled' })}
+              disabled={isUpdating}
+            >
+              <X className="w-4 h-4 mr-1" />
+              Annuler
+            </Button>
+          </div>
+        );
+      case 'shipped':
+        return (
+          <Button
+            size="sm"
+            onClick={() => updateOrderStatus.mutate({ orderId, status: 'delivered' })}
+            disabled={isUpdating}
+            className="bg-green-600 hover:bg-green-700"
+          >
+            <Package className="w-4 h-4 mr-1" />
+            Marquer livré
+          </Button>
+        );
+      default:
+        return null;
     }
   };
 
@@ -147,9 +244,12 @@ const AdminOrders = () => {
                       <ShoppingCart className="w-5 h-5 text-amber-600" />
                       Commande #{order.id.slice(0, 8)}...
                     </CardTitle>
-                    <Badge className={getStatusColor(order.status)}>
-                      {getStatusText(order.status)}
-                    </Badge>
+                    <div className="flex items-center gap-3">
+                      <Badge className={getStatusColor(order.status)}>
+                        {getStatusText(order.status)}
+                      </Badge>
+                      {getStatusActions(order.id, order.status)}
+                    </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
                     <div className="flex items-center gap-1">
