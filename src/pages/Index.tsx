@@ -2,23 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Instagram, MapPin, Phone, Mail, ShoppingCart } from "lucide-react";
-
 const Index = () => {
   const handleServicePersonnalise = () => {
     // Scroll vers la section contact pour prendre rendez-vous
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('contact')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   const handlePrendreRendezVous = () => {
     // Ouvrir WhatsApp ou l'application de téléphone
     window.open('tel:+221787303737', '_self');
   };
-
   const handleVoirGalerie = () => {
     // Scroll vers la section galerie
-    document.getElementById('galerie')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('galerie')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
       {/* Header */}
       <header className="bg-white/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-50">
@@ -57,23 +57,14 @@ const Index = () => {
                 <Button size="lg" asChild className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
                   <a href="/shop">Découvrir la Boutique</a>
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-amber-600 text-amber-700 hover:bg-amber-50 px-8 py-3 rounded-md transition-all duration-300"
-                  onClick={handleServicePersonnalise}
-                >
+                <Button size="lg" variant="outline" className="border-amber-600 text-amber-700 hover:bg-amber-50 px-8 py-3 rounded-md transition-all duration-300" onClick={handleServicePersonnalise}>
                   Service Personnalisé
                 </Button>
               </div>
             </div>
             <div className="relative">
               <div className="aspect-[4/5] rounded-lg shadow-2xl relative overflow-hidden">
-                <img 
-                  src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" 
-                  alt="Costume gris élégant double boutonnage SUIT SENEGAL"
-                  className="w-full h-full object-cover"
-                />
+                <img src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" alt="Costume gris élégant double boutonnage SUIT SENEGAL" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 text-white">
                   <p className="text-sm font-medium">Collection Prestige</p>
@@ -102,11 +93,7 @@ const Index = () => {
             {/* Men's Collection - Gray Suit */}
             <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="aspect-[3/4] relative overflow-hidden">
-                <img 
-                  src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" 
-                  alt="Costume double boutonnage gris homme"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" alt="Costume double boutonnage gris homme" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-serif font-semibold">Collection Homme</h4>
@@ -132,11 +119,7 @@ const Index = () => {
             {/* Men's Collection - Beige Suit */}
             <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="aspect-[3/4] relative overflow-hidden">
-                <img 
-                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" 
-                  alt="Costume trois pièces beige homme"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" alt="Costume trois pièces beige homme" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-serif font-semibold">Collection Été</h4>
@@ -162,11 +145,7 @@ const Index = () => {
             {/* Women's Collection - Blue Suit */}
             <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="aspect-[3/4] relative overflow-hidden">
-                <img 
-                  src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" 
-                  alt="Tailleur bleu femme double boutonnage"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" alt="Tailleur bleu femme double boutonnage" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h4 className="text-lg font-serif font-semibold">Collection Femme</h4>
@@ -213,81 +192,43 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="space-y-6">
               <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img 
-                  src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" 
-                  alt="Costume gris élégant"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" alt="Costume gris élégant" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img 
-                  src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" 
-                  alt="Tailleur bleu femme"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" alt="Tailleur bleu femme" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
             </div>
 
             <div className="space-y-6 lg:mt-8">
               <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img 
-                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" 
-                  alt="Costume beige trois pièces"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" alt="Costume beige trois pièces" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img 
-                  src="/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png" 
-                  alt="Manteau carreaux femme"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png" alt="Manteau carreaux femme" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
             </div>
 
             <div className="space-y-6">
               <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img 
-                  src="/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png" 
-                  alt="Style décontracté chic"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png" alt="Style décontracté chic" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img 
-                  src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" 
-                  alt="Collection masculine"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" alt="Collection masculine" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
             </div>
 
             <div className="space-y-6 lg:mt-8">
               <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img 
-                  src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" 
-                  alt="Élégance professionnelle"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" alt="Élégance professionnelle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img 
-                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" 
-                  alt="Style tropical chic"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" alt="Style tropical chic" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105"
-              onClick={handleVoirGalerie}
-            >
-              Voir toute la Galerie
-            </Button>
+            
           </div>
         </div>
       </section>
@@ -326,11 +267,7 @@ const Index = () => {
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl shadow-xl overflow-hidden">
-                <img 
-                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" 
-                  alt="Artisanat SUIT SENEGAL"
-                  className="w-full h-full object-cover"
-                />
+                <img src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" alt="Artisanat SUIT SENEGAL" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-slate-800 rounded-full opacity-20"></div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-amber-300/30 rounded-full blur-xl"></div>
@@ -384,11 +321,7 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105"
-              onClick={handlePrendreRendezVous}
-            >
+            <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105" onClick={handlePrendreRendezVous}>
               Prendre Rendez-vous
             </Button>
           </div>
@@ -441,5 +374,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-
 export default Index;
