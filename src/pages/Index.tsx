@@ -11,16 +11,13 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-serif font-bold text-slate-800">SUIT SENEGAL</h1>
             <nav className="hidden md:flex space-x-8">
-              <a href="#home" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Accueil</a>
-              <a href="#collection" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Collection</a>
-              <a href="#galerie" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Galerie</a>
-              <a href="#about" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">À Propos</a>
+              <a href="/" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Accueil</a>
               <a href="/shop" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Boutique</a>
+              <a href="#contact" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Contact</a>
               <a href="/cart" className="text-slate-700 hover:text-amber-600 transition-colors font-medium flex items-center gap-2">
                 <ShoppingCart className="w-5 h-5" />
                 Panier
               </a>
-              <a href="#contact" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Contact</a>
             </nav>
           </div>
         </div>
