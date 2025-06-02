@@ -1,8 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Instagram, MapPin, Phone, Mail } from "lucide-react";
+import { Instagram, MapPin, Phone, Mail, ShoppingCart } from "lucide-react";
 
 const Index = () => {
   return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
@@ -16,6 +15,11 @@ const Index = () => {
               <a href="#collection" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Collection</a>
               <a href="#galerie" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Galerie</a>
               <a href="#about" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">À Propos</a>
+              <a href="/shop" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Boutique</a>
+              <a href="/cart" className="text-slate-700 hover:text-amber-600 transition-colors font-medium flex items-center gap-2">
+                <ShoppingCart className="w-5 h-5" />
+                Panier
+              </a>
               <a href="#contact" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Contact</a>
             </nav>
           </div>
@@ -38,8 +42,8 @@ const Index = () => {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
-                  Découvrir la Collection
+                <Button size="lg" asChild className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
+                  <a href="/shop">Découvrir la Boutique</a>
                 </Button>
                 <Button size="lg" variant="outline" className="border-amber-600 text-amber-700 hover:bg-amber-50 px-8 py-3 rounded-md transition-all duration-300">
                   Service Personnalisé
@@ -99,9 +103,9 @@ const Index = () => {
                     <p className="text-slate-600 text-sm">Élégance intemporelle</p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-amber-600">75.000 CFA</span>
-                    <Button size="sm" variant="outline" className="hover:bg-slate-50">
-                      Voir plus
+                    <span className="text-2xl font-bold text-amber-600">450.000 CFA</span>
+                    <Button size="sm" variant="outline" asChild className="hover:bg-slate-50">
+                      <a href="/shop">Voir plus</a>
                     </Button>
                   </div>
                 </div>
@@ -129,9 +133,9 @@ const Index = () => {
                     <p className="text-slate-600 text-sm">Sophistication moderne</p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-amber-600">80.000 CFA</span>
-                    <Button size="sm" variant="outline" className="hover:bg-slate-50">
-                      Voir plus
+                    <span className="text-2xl font-bold text-amber-600">590.000 CFA</span>
+                    <Button size="sm" variant="outline" asChild className="hover:bg-slate-50">
+                      <a href="/shop">Voir plus</a>
                     </Button>
                   </div>
                 </div>
@@ -159,14 +163,20 @@ const Index = () => {
                     <p className="text-slate-600 text-sm">Confiance et charisme</p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-amber-600">Sur devis</span>
-                    <Button size="sm" variant="outline" className="hover:bg-slate-50">
-                      Commander
+                    <span className="text-2xl font-bold text-amber-600">680.000 CFA</span>
+                    <Button size="sm" variant="outline" asChild className="hover:bg-slate-50">
+                      <a href="/shop">Commander</a>
                     </Button>
                   </div>
                 </div>
               </CardContent>
             </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" asChild className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
+              <a href="/shop">Voir toute la Collection</a>
+            </Button>
           </div>
         </div>
       </section>
@@ -374,9 +384,9 @@ const Index = () => {
             <div className="space-y-4">
               <h5 className="text-lg font-semibold">Collections</h5>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Homme</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Femme</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Sur mesure</a></li>
+                <li><a href="/shop" className="hover:text-amber-400 transition-colors">Homme</a></li>
+                <li><a href="/shop" className="hover:text-amber-400 transition-colors">Femme</a></li>
+                <li><a href="/shop" className="hover:text-amber-400 transition-colors">Sur mesure</a></li>
               </ul>
             </div>
 
