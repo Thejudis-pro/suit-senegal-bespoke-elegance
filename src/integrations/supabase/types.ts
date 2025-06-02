@@ -50,6 +50,41 @@ export type Database = {
           },
         ]
       }
+      order_confirmations: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          message: string
+          order_id: string | null
+          sent: boolean | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          message: string
+          order_id?: string | null
+          sent?: boolean | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          message?: string
+          order_id?: string | null
+          sent?: boolean | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_confirmations_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       order_items: {
         Row: {
           created_at: string
