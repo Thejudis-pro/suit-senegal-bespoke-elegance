@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from "@/integrations/supabase/client";
@@ -111,7 +110,6 @@ const AdminOrders = () => {
                 <a href="/" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Accueil</a>
                 <a href="/shop" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Boutique</a>
                 <a href="/admin-orders" className="text-amber-600 font-medium">Commandes</a>
-                <a href="/order-confirmations" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Confirmations</a>
               </nav>
               <Button 
                 onClick={handleLogout} 
