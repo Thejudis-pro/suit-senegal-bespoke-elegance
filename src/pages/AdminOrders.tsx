@@ -1,10 +1,13 @@
 
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Mail, Calendar, User, ShoppingCart, Phone, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Mail, Calendar, User, ShoppingCart, Phone, MapPin, LogOut } from "lucide-react";
+import AdminPasswordForm from "@/components/AdminPasswordForm";
 
 interface Order {
   id: string;
@@ -23,6 +26,19 @@ interface Order {
 }
 
 const AdminOrders = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // Check if user is already authenticated
+    const authenticated = localStorage.getItem('admin-authenticated') === 'true';
+    setIsAuthenticated(authenticated);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('admin-authenticated');
+    setIsAuthenticated(false);
+  };
+
   const { data: orders, isLoading } = useQuery({
     queryKey: ['admin-orders'],
     queryFn: async () => {
@@ -41,8 +57,14 @@ const AdminOrders = () => {
       
       if (error) throw error;
       return data as Order[];
-    }
+    },
+    enabled: isAuthenticated // Only fetch data when authenticated
   });
+
+  // Show password form if not authenticated
+  if (!isAuthenticated) {
+    return <AdminPasswordForm onAuthenticated={() => setIsAuthenticated(true)} />;
+  }
 
   if (isLoading) {
     return (
@@ -84,12 +106,23 @@ const AdminOrders = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-serif font-bold text-slate-800">SUIT SENEGAL - Admin</h1>
-            <nav className="hidden md:flex space-x-8">
-              <a href="/" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Accueil</a>
-              <a href="/shop" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Boutique</a>
-              <a href="/admin-orders" className="text-amber-600 font-medium">Commandes</a>
-              <a href="/order-confirmations" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Confirmations</a>
-            </nav>
+            <div className="flex items-center gap-4">
+              <nav className="hidden md:flex space-x-8">
+                <a href="/" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Accueil</a>
+                <a href="/shop" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Boutique</a>
+                <a href="/admin-orders" className="text-amber-600 font-medium">Commandes</a>
+                <a href="/order-confirmations" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Confirmations</a>
+              </nav>
+              <Button 
+                onClick={handleLogout} 
+                variant="outline" 
+                size="sm"
+                className="flex items-center gap-2"
+              >
+                <LogOut className="w-4 h-4" />
+                Déconnexion
+              </Button>
+            </div>
           </div>
         </div>
       </header>
