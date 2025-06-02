@@ -4,6 +4,21 @@ import { Badge } from "@/components/ui/badge";
 import { Instagram, MapPin, Phone, Mail, ShoppingCart } from "lucide-react";
 
 const Index = () => {
+  const handleServicePersonnalise = () => {
+    // Scroll vers la section contact pour prendre rendez-vous
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handlePrendreRendezVous = () => {
+    // Ouvrir WhatsApp ou l'application de téléphone
+    window.open('tel:+221787303737', '_self');
+  };
+
+  const handleVoirGalerie = () => {
+    // Scroll vers la section galerie
+    document.getElementById('galerie')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
       {/* Header */}
       <header className="bg-white/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-50">
@@ -42,7 +57,12 @@ const Index = () => {
                 <Button size="lg" asChild className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
                   <a href="/shop">Découvrir la Boutique</a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-amber-600 text-amber-700 hover:bg-amber-50 px-8 py-3 rounded-md transition-all duration-300">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-amber-600 text-amber-700 hover:bg-amber-50 px-8 py-3 rounded-md transition-all duration-300"
+                  onClick={handleServicePersonnalise}
+                >
                   Service Personnalisé
                 </Button>
               </div>
@@ -261,7 +281,11 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
+            <Button 
+              size="lg" 
+              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105"
+              onClick={handleVoirGalerie}
+            >
               Voir toute la Galerie
             </Button>
           </div>
@@ -360,7 +384,11 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
+            <Button 
+              size="lg" 
+              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105"
+              onClick={handlePrendreRendezVous}
+            >
               Prendre Rendez-vous
             </Button>
           </div>
