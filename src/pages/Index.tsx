@@ -132,22 +132,22 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                img: '/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png',
-                title: 'Costume Prestige',
-                subtitle: 'Double Boutonnage Gris',
-                price: '450.000',
+                img: '/products/teal-three-piece.png',
+                title: 'Costume Teal Trois Pièces',
+                subtitle: 'Collection Prestige',
+                price: '245.000',
               },
               {
-                img: '/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png',
-                title: 'Trois Pièces',
-                subtitle: 'Collection Été',
-                price: '590.000',
+                img: '/products/cream-double-breasted.png',
+                title: 'Costume Croisé Crème',
+                subtitle: 'Collection Signature',
+                price: '220.000',
               },
               {
-                img: '/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png',
-                title: 'Tailleur Royal',
+                img: '/products/orange-femme.png',
+                title: 'Tailleur Orange',
                 subtitle: 'Collection Femme',
-                price: '680.000',
+                price: '185.000',
               },
             ].map((item, i) => (
               <motion.div
