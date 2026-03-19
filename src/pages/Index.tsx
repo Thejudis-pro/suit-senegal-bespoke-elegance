@@ -24,7 +24,7 @@ const Index = () => {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png"
+            src="/products/cream-double-breasted.png"
             alt="Costume sur mesure SUIT SENEGAL"
             className="w-full h-full object-cover"
             loading="eager"
@@ -132,22 +132,22 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                img: '/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png',
-                title: 'Costume Prestige',
-                subtitle: 'Double Boutonnage Gris',
-                price: '450.000',
+                img: '/products/teal-three-piece.png',
+                title: 'Costume Teal Trois Pièces',
+                subtitle: 'Collection Prestige',
+                price: '245.000',
               },
               {
-                img: '/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png',
-                title: 'Trois Pièces',
-                subtitle: 'Collection Été',
-                price: '590.000',
+                img: '/products/cream-double-breasted.png',
+                title: 'Costume Croisé Crème',
+                subtitle: 'Collection Signature',
+                price: '220.000',
               },
               {
-                img: '/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png',
-                title: 'Tailleur Royal',
+                img: '/products/orange-femme.png',
+                title: 'Tailleur Orange',
                 subtitle: 'Collection Femme',
-                price: '680.000',
+                price: '185.000',
               },
             ].map((item, i) => (
               <motion.div
@@ -257,7 +257,7 @@ const Index = () => {
             >
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png"
+                  src="/products/grey-pinstripe.png"
                   alt="Artisanat SUIT SENEGAL"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -287,14 +287,16 @@ const Index = () => {
 
           <div className="columns-2 lg:columns-4 gap-4 space-y-4">
             {[
-              { src: '/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png', alt: 'Costume gris' },
-              { src: '/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png', alt: 'Tailleur bleu' },
-              { src: '/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png', alt: 'Trois pièces beige' },
-              { src: '/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png', alt: 'Manteau carreaux' },
-              { src: '/lovable-uploads/86209660-17e5-4572-91af-5523dd7b03f7.png', alt: 'Costume croisé' },
-              { src: '/lovable-uploads/938ed564-8209-491f-8d5a-62e6cc0c61ea.png', alt: 'Safari chic' },
-              { src: '/lovable-uploads/d03eb783-6e6f-44cc-a3e2-0f8c873546f5.png', alt: 'Création exclusive' },
-              { src: '/lovable-uploads/13a9101e-31b9-49ee-8cae-4868b4861da0.png', alt: 'Style élégant' },
+              { src: '/products/cream-double-breasted.png', alt: 'Costume croisé crème' },
+              { src: '/products/teal-three-piece.png', alt: 'Costume teal trois pièces' },
+              { src: '/products/grey-pinstripe.png', alt: 'Costume gris rayé' },
+              { src: '/products/orange-femme.png', alt: 'Tailleur orange' },
+              { src: '/products/navy-ocean.png', alt: 'Costume bleu océan' },
+              { src: '/products/green-safari.png', alt: 'Veste safari émeraude' },
+              { src: '/products/black-ocean.png', alt: 'Costume noir océan' },
+              { src: '/products/mustard-femme.png', alt: 'Tailleur moutarde' },
+              { src: '/products/beige-classic.png', alt: 'Costume croisé beige' },
+              { src: '/products/grey-mandarin.png', alt: 'Costume col mao gris' },
             ].map((img, i) => (
               <motion.div
                 key={img.src}
