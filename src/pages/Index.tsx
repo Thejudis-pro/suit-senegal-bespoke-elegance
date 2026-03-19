@@ -257,7 +257,7 @@ const Index = () => {
             >
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png"
+                  src="/products/grey-pinstripe.png"
                   alt="Artisanat SUIT SENEGAL"
                   className="w-full h-full object-cover"
                   loading="lazy"
