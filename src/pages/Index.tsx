@@ -1,377 +1,367 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Instagram, MapPin, Phone, Mail, ShoppingCart } from "lucide-react";
-const Index = () => {
-  const handleServicePersonnalise = () => {
-    // Scroll vers la section contact pour prendre rendez-vous
-    document.getElementById('contact')?.scrollIntoView({
-      behavior: 'smooth'
-    });
-  };
-  const handlePrendreRendezVous = () => {
-    // Ouvrir WhatsApp ou l'application de téléphone
-    window.open('tel:+221787303737', '_self');
-  };
-  const handleVoirGalerie = () => {
-    // Scroll vers la section galerie
-    document.getElementById('galerie')?.scrollIntoView({
-      behavior: 'smooth'
-    });
-  };
-  return <div className="min-h-screen bg-gradient-to-br from-slate-50 to-stone-100">
-      {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-serif font-bold text-slate-800">SUIT SENEGAL</h1>
-            <nav className="hidden md:flex space-x-8">
-              <a href="/" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Accueil</a>
-              <a href="/shop" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Boutique</a>
-              <a href="#contact" className="text-slate-700 hover:text-amber-600 transition-colors font-medium">Contact</a>
-              <a href="/cart" className="text-slate-700 hover:text-amber-600 transition-colors font-medium flex items-center gap-2">
-                <ShoppingCart className="w-5 h-5" />
-                Panier
-              </a>
-            </nav>
-          </div>
-        </div>
-      </header>
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Scissors, Ruler, Gem, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
-      {/* Hero Section */}
-      <section id="home" className="relative py-20 lg:py-32">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-200">Confection sur mesure</Badge>
-                <h2 className="text-4xl lg:text-6xl font-serif font-bold text-slate-800 leading-tight">
-                  L'Élégance
-                  <span className="block text-amber-600">Sénégalaise</span>
-                </h2>
-                <p className="text-xl text-slate-600 leading-relaxed">
-                  Découvrez l'art de la confection sur mesure où l'artisanat traditionnel rencontre le design contemporain. Chaque costume raconte une histoire d'élégance et d'individualité.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
-                  <a href="/shop">Découvrir la Boutique</a>
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      {/* Hero */}
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png"
+            alt="Costume sur mesure SUIT SENEGAL"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/20" />
+        </div>
+
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <div className="max-w-2xl">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              className="space-y-8"
+            >
+              <motion.p
+                custom={0}
+                variants={fadeUp}
+                className="font-body text-xs tracking-[0.35em] uppercase text-gold"
+              >
+                Maison de Confection — Dakar
+              </motion.p>
+
+              <motion.h1
+                custom={1}
+                variants={fadeUp}
+                className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold text-primary-foreground leading-[0.95] tracking-tight"
+              >
+                L'Art du
+                <br />
+                <span className="italic text-gold">Sur Mesure</span>
+              </motion.h1>
+
+              <motion.p
+                custom={2}
+                variants={fadeUp}
+                className="font-body text-base lg:text-lg text-primary-foreground/70 leading-relaxed max-w-lg"
+              >
+                Chaque costume est une déclaration. Chaque couture, un héritage.
+                Découvrez l'excellence du savoir-faire sénégalais.
+              </motion.p>
+
+              <motion.div custom={3} variants={fadeUp} className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gold hover:bg-gold-dark text-primary font-body text-sm tracking-[0.12em] uppercase px-10 py-6 rounded-none transition-all duration-300"
+                >
+                  <Link to="/shop">
+                    Découvrir la Collection
+                    <ArrowRight className="ml-3 w-4 h-4" />
+                  </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-amber-600 text-amber-700 hover:bg-amber-50 px-8 py-3 rounded-md transition-all duration-300" onClick={handleServicePersonnalise}>
-                  Service Personnalisé
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-body text-sm tracking-[0.12em] uppercase px-10 py-6 rounded-none"
+                >
+                  <a href="tel:+221787303737">Prendre Rendez-vous</a>
                 </Button>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-lg shadow-2xl relative overflow-hidden">
-                <img src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" alt="Costume gris élégant double boutonnage SUIT SENEGAL" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <p className="text-sm font-medium">Collection Prestige</p>
-                  <p className="text-lg font-serif">Costume Double Boutonnage</p>
-                </div>
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-400/20 rounded-full blur-xl"></div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        >
+          <div className="w-px h-16 bg-gradient-to-b from-gold/0 via-gold to-gold/0" />
+        </motion.div>
       </section>
+
+      {/* Marquee banner */}
+      <div className="bg-primary py-4 overflow-hidden border-y border-gold/10">
+        <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
+          {[...Array(6)].map((_, i) => (
+            <span key={i} className="font-body text-xs tracking-[0.3em] uppercase text-gold/50 mx-8">
+              Sur Mesure ✦ Artisanat ✦ Excellence ✦ Dakar ✦ Élégance ✦
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* Collections Preview */}
-      <section id="collection" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl lg:text-4xl font-serif font-bold text-slate-800 mb-4">
-              Nos Collections
-            </h3>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Des créations uniques alliant tradition sénégalaise et modernité, conçues pour sublimer votre silhouette.
-            </p>
+      <section className="py-24 lg:py-32 bg-background">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-20"
+          >
+            <p className="font-body text-xs tracking-[0.35em] uppercase text-gold mb-4">Collection</p>
+            <h2 className="font-display text-4xl lg:text-6xl font-bold text-foreground">
+              Pièces d'Exception
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                img: '/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png',
+                title: 'Costume Prestige',
+                subtitle: 'Double Boutonnage Gris',
+                price: '450.000',
+              },
+              {
+                img: '/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png',
+                title: 'Trois Pièces',
+                subtitle: 'Collection Été',
+                price: '590.000',
+              },
+              {
+                img: '/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png',
+                title: 'Tailleur Royal',
+                subtitle: 'Collection Femme',
+                price: '680.000',
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.7 }}
+              >
+                <Link to="/shop" className="group block">
+                  <div className="aspect-[3/4] overflow-hidden mb-6 relative">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                      <span className="inline-flex items-center gap-2 font-body text-xs tracking-[0.15em] uppercase text-primary-foreground bg-gold/90 px-4 py-2">
+                        Découvrir <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground">
+                      {item.subtitle}
+                    </p>
+                    <h3 className="font-display text-xl font-semibold text-foreground group-hover:text-gold transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="font-display text-lg text-gold font-medium">{item.price} CFA</p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Men's Collection - Gray Suit */}
-            <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="aspect-[3/4] relative overflow-hidden">
-                <img src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" alt="Costume double boutonnage gris homme" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h4 className="text-lg font-serif font-semibold">Collection Homme</h4>
-                  <p className="text-sm opacity-90">Double Boutonnage</p>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <div>
-                    <h5 className="font-semibold text-slate-800">Costume Prestige Gris</h5>
-                    <p className="text-slate-600 text-sm">Élégance intemporelle</p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-amber-600">450.000 CFA</span>
-                    <Button size="sm" variant="outline" asChild className="hover:bg-slate-50">
-                      <a href="/shop">Voir plus</a>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Men's Collection - Beige Suit */}
-            <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="aspect-[3/4] relative overflow-hidden">
-                <img src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" alt="Costume trois pièces beige homme" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h4 className="text-lg font-serif font-semibold">Collection Été</h4>
-                  <p className="text-sm opacity-90">Trois pièces</p>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <div>
-                    <h5 className="font-semibold text-slate-800">Costume Trois Pièces Beige</h5>
-                    <p className="text-slate-600 text-sm">Sophistication moderne</p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-amber-600">590.000 CFA</span>
-                    <Button size="sm" variant="outline" asChild className="hover:bg-slate-50">
-                      <a href="/shop">Voir plus</a>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Women's Collection - Blue Suit */}
-            <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="aspect-[3/4] relative overflow-hidden">
-                <img src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" alt="Tailleur bleu femme double boutonnage" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h4 className="text-lg font-serif font-semibold">Collection Femme</h4>
-                  <p className="text-sm opacity-90">Puissance & Élégance</p>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <div>
-                    <h5 className="font-semibold text-slate-800">Tailleur Bleu Royal</h5>
-                    <p className="text-slate-600 text-sm">Confiance et charisme</p>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-amber-600">680.000 CFA</span>
-                    <Button size="sm" variant="outline" asChild className="hover:bg-slate-50">
-                      <a href="/shop">Commander</a>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="text-center mt-12">
-            <Button size="lg" asChild className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105">
-              <a href="/shop">Voir toute la Collection</a>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-charcoal-light text-primary-foreground font-body text-sm tracking-[0.12em] uppercase px-12 py-6 rounded-none"
+            >
+              <Link to="/shop">
+                Voir Toute la Collection
+                <ArrowRight className="ml-3 w-4 h-4" />
+              </Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Galerie Section */}
-      <section id="galerie" className="py-20 bg-gradient-to-br from-slate-50 to-stone-100">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl lg:text-4xl font-serif font-bold text-slate-800 mb-4">
-              Galerie de nos Créations
-            </h3>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Parcourez notre portfolio de créations sur mesure et laissez-vous inspirer par l'artisanat sénégalais.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="space-y-6">
-              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" alt="Costume gris élégant" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" alt="Tailleur bleu femme" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-            </div>
-
-            <div className="space-y-6 lg:mt-8">
-              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" alt="Costume beige trois pièces" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img src="/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png" alt="Manteau carreaux femme" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img src="/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png" alt="Style décontracté chic" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png" alt="Collection masculine" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-            </div>
-
-            <div className="space-y-6 lg:mt-8">
-              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img src="/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png" alt="Élégance professionnelle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div className="aspect-[3/4] rounded-lg shadow-lg overflow-hidden group">
-                <img src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" alt="Style tropical chic" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h3 className="text-3xl lg:text-4xl font-serif font-bold text-slate-800">
-                Notre Philosophie
-              </h3>
-              <div className="space-y-4 text-slate-600 leading-relaxed">
-                <p>
-                  SUIT SENEGAL incarne l'excellence de l'artisanat sénégalais dans l'art de la confection sur mesure. 
-                  Chaque pièce est méticuleusement créée pour sublimer la silhouette unique de celui qui la porte.
-                </p>
-                <p>
-                  Notre engagement envers la qualité et l'individualité se reflète dans chaque détail, 
-                  de la sélection des tissus les plus fins à la finition artisanale de nos créations.
-                </p>
-                <p>
-                  Nous fusionnons les techniques traditionnelles avec les tendances contemporaines pour 
-                  offrir des vêtements qui racontent une histoire d'élégance intemporelle.
-                </p>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                  <span className="text-amber-600 font-bold text-xl">+</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-slate-800">Artisanat traditionnel</p>
-                  <p className="text-slate-600 text-sm">Savoir-faire authentique</p>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-2xl shadow-xl overflow-hidden">
-                <img src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png" alt="Artisanat SUIT SENEGAL" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-slate-800 rounded-full opacity-20"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-amber-300/30 rounded-full blur-xl"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-slate-800 text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl lg:text-4xl font-serif font-bold mb-4">
-              Contactez-nous
-            </h3>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Prenez rendez-vous pour une consultation personnalisée et découvrez l'art de la confection sur mesure.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto">
-                <MapPin className="w-8 h-8 text-white" />
-              </div>
+      {/* Savoir-faire Section */}
+      <section className="py-24 lg:py-32 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-10"
+            >
               <div>
-                <h4 className="text-xl font-semibold mb-2">Localisation</h4>
-                <p className="text-slate-300">Dakar, Sénégal</p>
+                <p className="font-body text-xs tracking-[0.35em] uppercase text-gold mb-4">Notre Philosophie</p>
+                <h2 className="font-display text-4xl lg:text-5xl font-bold leading-tight">
+                  L'Excellence dans
+                  <br />
+                  <span className="italic text-gold">Chaque Détail</span>
+                </h2>
               </div>
-            </div>
 
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto">
-                <Phone className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold mb-2">Téléphone</h4>
-                <p className="text-slate-300">+221 78 730 37 37</p>
-              </div>
-            </div>
-
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto">
-                <Instagram className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold mb-2">Instagram</h4>
-                <a href="#" className="text-amber-400 hover:text-amber-300 transition-colors">@suitsenegal</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-md transition-all duration-300 hover:scale-105" onClick={handlePrendreRendezVous}>
-              Prendre Rendez-vous
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <h4 className="text-2xl font-serif font-bold">SUIT SENEGAL</h4>
-              <p className="text-slate-400">
-                L'excellence de l'artisanat sénégalais au service de votre élégance.
+              <p className="font-body text-base text-primary-foreground/60 leading-relaxed max-w-lg">
+                SUIT SENEGAL incarne l'excellence de l'artisanat sénégalais dans l'art de la confection sur mesure.
+                Chaque pièce est méticuleusement créée pour sublimer la silhouette unique de celui qui la porte.
               </p>
-            </div>
-            
-            <div className="space-y-4">
-              <h5 className="text-lg font-semibold">Collections</h5>
-              <ul className="space-y-2 text-slate-400">
-                <li><a href="/shop" className="hover:text-amber-400 transition-colors">Homme</a></li>
-                <li><a href="/shop" className="hover:text-amber-400 transition-colors">Femme</a></li>
-                <li><a href="/shop" className="hover:text-amber-400 transition-colors">Sur mesure</a></li>
-              </ul>
-            </div>
 
-            <div className="space-y-4">
-              <h5 className="text-lg font-semibold">Services</h5>
-              <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Consultation</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Prise de mesures</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Retouches</a></li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h5 className="text-lg font-semibold">Contact</h5>
-              <div className="space-y-2 text-slate-400">
-                <p>Dakar, Sénégal</p>
-                <p>+221 78 730 37 37</p>
-                <a href="#" className="hover:text-amber-400 transition-colors">contact@suitsenegal.com</a>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                {[
+                  { icon: Scissors, label: 'Coupe Artisanale', desc: 'Finitions main' },
+                  { icon: Ruler, label: 'Sur Mesure', desc: 'Ajusté à la perfection' },
+                  { icon: Gem, label: 'Tissus Nobles', desc: 'Matières d\'exception' },
+                ].map(({ icon: Icon, label, desc }) => (
+                  <div key={label} className="text-center sm:text-left">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-gold/30 mb-4">
+                      <Icon className="w-5 h-5 text-gold" />
+                    </div>
+                    <p className="font-body text-sm font-medium text-primary-foreground">{label}</p>
+                    <p className="font-body text-xs text-primary-foreground/50 mt-1">{desc}</p>
+                  </div>
+                ))}
               </div>
-            </div>
-          </div>
+            </motion.div>
 
-          <div className="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400">
-            <p>&copy; 2024 SUIT SENEGAL. Tous droits réservés.</p>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="aspect-[4/5] overflow-hidden">
+                <img
+                  src="/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png"
+                  alt="Artisanat SUIT SENEGAL"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              {/* Decorative frame */}
+              <div className="absolute -top-4 -right-4 w-full h-full border border-gold/20 -z-10" />
+            </motion.div>
           </div>
         </div>
-      </footer>
-    </div>;
+      </section>
+
+      {/* Gallery masonry */}
+      <section className="py-24 lg:py-32 bg-background">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <p className="font-body text-xs tracking-[0.35em] uppercase text-gold mb-4">Galerie</p>
+            <h2 className="font-display text-4xl lg:text-6xl font-bold text-foreground">
+              Nos Créations
+            </h2>
+          </motion.div>
+
+          <div className="columns-2 lg:columns-4 gap-4 space-y-4">
+            {[
+              { src: '/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png', alt: 'Costume gris' },
+              { src: '/lovable-uploads/b481637d-ae7c-42c8-bbc7-517053557d23.png', alt: 'Tailleur bleu' },
+              { src: '/lovable-uploads/6deb5998-ba20-4c03-8446-ffee8818d7b9.png', alt: 'Trois pièces beige' },
+              { src: '/lovable-uploads/ff49a873-9c1d-4ef0-ad93-416ef8156f1b.png', alt: 'Manteau carreaux' },
+              { src: '/lovable-uploads/86209660-17e5-4572-91af-5523dd7b03f7.png', alt: 'Costume croisé' },
+              { src: '/lovable-uploads/938ed564-8209-491f-8d5a-62e6cc0c61ea.png', alt: 'Safari chic' },
+              { src: '/lovable-uploads/d03eb783-6e6f-44cc-a3e2-0f8c873546f5.png', alt: 'Création exclusive' },
+              { src: '/lovable-uploads/13a9101e-31b9-49ee-8cae-4868b4861da0.png', alt: 'Style élégant' },
+            ].map((img, i) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="break-inside-avoid group overflow-hidden"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 lg:py-32 bg-cream-dark">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center space-y-8"
+          >
+            <p className="font-body text-xs tracking-[0.35em] uppercase text-gold">Rendez-vous</p>
+            <h2 className="font-display text-4xl lg:text-6xl font-bold text-foreground leading-tight">
+              Créons Votre
+              <br />
+              <span className="italic text-gold">Prochaine Pièce</span>
+            </h2>
+            <p className="font-body text-base text-muted-foreground leading-relaxed max-w-xl mx-auto">
+              Prenez rendez-vous pour une consultation privée dans notre atelier à Dakar. 
+              Ensemble, donnons vie à votre vision.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-gold hover:bg-gold-dark text-primary font-body text-sm tracking-[0.12em] uppercase px-10 py-6 rounded-none"
+              >
+                <a href="tel:+221787303737">
+                  <Phone className="mr-3 w-4 h-4" />
+                  +221 78 730 37 37
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-foreground/20 text-foreground hover:bg-foreground/5 font-body text-sm tracking-[0.12em] uppercase px-10 py-6 rounded-none"
+              >
+                <Link to="/shop">Explorer la Boutique</Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
 };
+
 export default Index;
