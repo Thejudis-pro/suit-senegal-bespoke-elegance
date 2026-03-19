@@ -24,7 +24,7 @@ const Index = () => {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="/lovable-uploads/0342e967-a795-48ef-9918-5eb3f90d9417.png"
+            src="/products/cream-double-breasted.png"
             alt="Costume sur mesure SUIT SENEGAL"
             className="w-full h-full object-cover"
             loading="eager"
